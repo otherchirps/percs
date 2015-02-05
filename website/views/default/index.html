@@ -1,0 +1,77 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,False #('message' in globals())}}
+{{extend 'layout.html'}}
+
+{{if 'message' in globals():}}
+<h3>{{=message}}</h3>
+{{elif 'content' in globals():}}
+{{=content}}
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}
+
+
+<form class="form-search">
+    <div class="input-append">
+        <input name="query" type="text" class="search-query input-xlarge" placeholder="Search" value="{{=globals().get('query', '')}}" />
+        <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+</form>
+
+
+
+{{if 'results' in globals():}}
+    {{if not results:}}
+    <p class="text-info">
+        No matches found.
+    </p>
+    {{else:}}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Collection</th>
+                <th>Name</th>
+                <th>Document</td>
+            </tr>
+        </thead>
+        <tbody>
+        {{for result in results:}}
+            <tr id="{{=result['id']}}">
+                <td>
+                    <a href="{{=URL('collections', args=[result['collection']])}}">
+                        {{=result['collection']}}
+                    </a>
+                </td>
+                <td>{{=result['person']}}</td>
+                <td>
+                    <a href="{{=result['download_path']}}#page={{=result['page']}}">
+                        {{=result['filename']}}#page={{=result['page']}}
+                    </a>
+                    {{if result.get('highlights', False):}}
+                    <div class="well">
+                        {{=result['highlights'].encode('ascii', 'ignore'), False}}
+                    </div>
+                    {{pass}}
+                </td>
+            </tr>
+        {{pass}}
+        </tbody>
+    </table>
+
+    {{if paginator:}}
+        {{=paginator}}
+        {{pass}}
+
+    {{pass}}
+{{pass}}
+
+
+{{block right_sidebar}}
+
+{{end}}
+
+{{block footer}}
+    {{
+        # Empty block, to override the parent template's footer.
+        # Basically, don't want to display all the copyright & sharing link guff.
+    }}
+{{end}}

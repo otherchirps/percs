@@ -1,0 +1,45 @@
+{{extend 'layout.html'}}
+
+{{if not collection:}}
+
+<h3>{{=T("Collections")}}</h3>
+
+<p>There are the documents currently included in the search index.</p>
+
+<ul>
+{{for collection in available_collections:}}
+    <li>
+        <a href="{{=URL('collections', args=[collection])}}">
+            {{=collection}}
+        </a>
+    </li>
+{{pass}}
+</ul>
+
+{{else:}}
+
+<h3>{{=collection}}</h3>
+
+{{if description:}}
+<div class="well">
+    {{=description}}
+</div>
+{{pass}}
+
+<ul>
+{{for filename in filenames:}}
+    <li>
+        <a href="{{=URL('static', 'collections/{0}/{1}'.format(collection, filename))}}" target="_blank">
+            {{=filename}}
+        </a>
+    </li>
+{{pass}}
+</ul>
+
+
+{{pass}}
+
+
+{{block footer}}
+
+{{pass}}

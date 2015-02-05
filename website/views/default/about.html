@@ -1,0 +1,37 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,False #('message' in globals())}}
+{{extend 'layout.html'}}
+
+<p>
+    This site provides a basic, searchable index of the 
+    <a href="http://www.parliament.nsw.gov.au/prod/la/latabdoc.nsf/062281a7012b5820ca257020000a3058/d8ec3278d94e2783ca257d71001a8111?OpenDocument">NSW Pecuniary interest documents</a>.
+</p>
+<p>
+    All possible thanks to the per-person PDFs, <a href="http://equivalentideas.com/journal/nsw-pecuniary-interest-disclosures/">made available by Luke Bacon</a>.
+</p>
+
+
+<p>The original PDFs were run through <a href="https://code.google.com/p/tesseract-ocr/">Tesseract</a>, using <a href="https://pypi.python.org/pypi/pypdfocr">PyPDFOCR</a>.  The text content was then indexed using <a href="https://pypi.python.org/pypi/pdfminer/">PDFMiner</a>, and <a href="https://pypi.python.org/pypi/Whoosh">Whoosh</a>.
+</p>
+
+<p>While the OCR did its best, with many of the documents (badly) hand-written, the results are not complete by any means. But, there is still enough data picked up to make searching worthwhile.</p>
+
+<p>Comments / errors, contact me <a href="mailto:christopher@otherchirps.net">here</a>.</p>
+
+<h4>Source & Project docs</h4>
+
+<p>You can find the code here: <a href="https://github.com/otherchirps/percs" target="_blank">https://github.com/otherchirps/percs</a>.
+</p>
+
+<p>Feel free to use the <a href="https://github.com/otherchirps/percs/issues" target="_blank">issue tracker</a> to log any suggestions / problems you come across. <a href="https://help.github.com/articles/be-social/#pull-requests" target="_blank">Pull requests</a> also welcome.
+</p>
+
+<p>The source PDFs indexed on the site aren't included in the repository, simply due to size limitations.<br /> 
+But you can grab them from the <a href="{{=URL('collections')}}">Collections page</a>.
+</p>
+
+{{block footer}}
+    {{
+        # Empty block, to override the parent template's footer.
+        # Basically, don't want to display all the copyright & sharing link guff.
+    }}
+{{end}}

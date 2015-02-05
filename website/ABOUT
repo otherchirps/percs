@@ -1,0 +1,35 @@
+This is the code for the percs website.
+
+It is an application, developed under the web2py framework (http://web2py.com).
+Only using a very small set of the framework's capabilities for now.
+
+Once you have that installed, add / link the contents of this directory as one of the web2py instance's
+applications.
+
+eg.
+If the web2py server is installed here: 
+
+    /var/web2py
+
+You'll need to do something like:
+
+    ln -s /var/web2py/applications/percs [PATH TO percs/website folder]
+
+or create the web2py/applications/percs subdirectory, and unpack the files there as you see fit.
+
+Then also set up the web2py server's routing rules.
+You can do this with the main webserver, or web2py, or both...
+
+In web2py, one way is to add a `routes.py` file in the web2py directory, with something like this inside:
+
+routers = dict(
+
+    # base router - send request for domain, to specific application.
+    BASE=dict(
+        domains = {
+            'percs.otherchirps.net': 'percs'
+        }
+    ),
+
+)
+
