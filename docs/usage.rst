@@ -251,6 +251,55 @@ you can supply another CSV (--name-csv). This CSV expects the format:
 1. name (eg. person name),
 2. filename
 
+Searching
+---------
+
+A commandline search utility is included: ``percs-search``.  You point it at your index directory,
+and give it a query, using the Whoosh `default query language`_.  Results will be spat out
+as json chunks.
+
+Options::
+
+    $ percs-search -h
+    usage: percs-search [-h] [-i INDEX_DIR] [-p PAGE] [-l LIMIT] [-c] query
+
+    positional arguments:
+      query                 Query string
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -i INDEX_DIR, --index-dir INDEX_DIR
+                            Percs index to search against
+      -p PAGE, --page PAGE  Page of paginated results to return
+      -l LIMIT, --limit LIMIT
+                            Max number of results to return
+      -c, --contents        Return indexed contents with each record
+
+Example::
+
+    percs-search -i percs_idx 'golf club' --limit 1
+
+.. code:: json
+
+    {
+      "matches": [
+        {
+          "file_hash": "b3d90a4d975791aef8719e89ee9f36b2f538d93d83bd5e2ee3283f6f71d1373c", 
+          "highlights": "<b class=\"match term0\">Club</b>,\nQantas Frequent Flyer <b class=\"match term0\">Club</b>, Port Kembla Pumas, Angels...of Hope, Wollongong <b class=\"match term1\">Golf</b>\nI <b class=\"match term0\">Club</b>, Illawarra Stingrays...Social <b class=\"match term0\">Club</b>, Member of Dogs NSW\n\n22", 
+          "page_hash": "16fbe6442983119358f0c21e318564c749a2ea9959e3ce3f8e212d3f47c66b42", 
+          "collection": "nsw_2013-2014_pecuniary_interests", 
+          "filename": "2014-06-30_Hay_Noreen_pecuniary-interests_ocr.pdf", 
+          "person": "Hay_Noreen", 
+          "content_type": "application/pdf", 
+          "id": "b3d90a4d975791aef8719e89ee9f36b2f538d93d83bd5e2ee3283f6f71d1373c-9", 
+          "page": 9
+        }
+      ], 
+      "total_matches": 5, 
+      "matches_returned": 1, 
+      "query": "golf club"
+    }
+
 
 .. _Whoosh stemming analyzer: http://whoosh.readthedocs.org/en/latest/stemming.html
 .. _default query language: http://whoosh.readthedocs.org/en/latest/querylang.html

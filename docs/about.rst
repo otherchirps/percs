@@ -7,16 +7,16 @@ Percs was initially created to provide a basic, searchable index of the `NSW Pec
 These files are uploaded as large PDFs, containing scanned images of Minister's submissions.
 Nearly 100 submissions, dumped into big, unsearchable, opaque files.
 
-One `OpenAustralia`_ `pub meetup`_, Luke Bacon kicked off the effort but splitting 
+One `OpenAustralia`_ `pub meetup`_, Luke Bacon kicked off the effort by processing & splitting 
 the files into `individual per-minister submissions`_.
 
 Chris Nilsson ran these files through an OCR, indexed the found text, and wrapped this percs site around
 the result. 
 
-The aim is to digitise and add previous, and ongoing years as needed.  
+The aim is to digitise & index previous, and ongoing years as needed.  
 
 Why? These folks are in charge of a good chunk of our money.  Having their
-pecuniary interest declarations, which are already public, more accessible can only help keep
+pecuniary interest declarations more accessible can only help keep
 things transparent and fair.
 
 Of course, the process isn't perfect.  Many documents are 
@@ -28,6 +28,11 @@ Source code
 -----------
 
 You can get the source code from: https://github.com/otherchirps/percs
+
+Documentation
+-------------
+
+Usage instructions, etc, can be found here: http://percs.readthedocs.org/
 
 Licensing
 ---------
