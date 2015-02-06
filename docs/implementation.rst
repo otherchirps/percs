@@ -1,3 +1,5 @@
+.. _implementation:
+
 Implementation
 ==============
 
@@ -5,6 +7,10 @@ The original PDFs were run through `Tesseract`_, using `PyPDFOCR`_.
 The text content was then indexed using `PDFMiner`_, `Whoosh`_.
 
 OCR and indexing is done offline. The static index is then served by the website.
+
+The percslib python package can, and probably should, be split off into its own project, as it
+can split, index, and search independantly of the little website tacked in front of it.
+Maybe one day...
 
 Why do it this way?
 -------------------
@@ -21,7 +27,7 @@ don't cost near to nothing.
 The current implementation means it can be thrown onto tiny shared hosts
 without a worry.
 
-Plus, `Whoosh`_ kicks ass, so it's not like we're hobbled without the "big guns".  
+Plus, `Whoosh`_ kicks ass!
 
 .. _Tesseract: https://code.google.com/p/tesseract-ocr/
 .. _PyPDFOCR: https://pypi.python.org/pypi/pypdfocr

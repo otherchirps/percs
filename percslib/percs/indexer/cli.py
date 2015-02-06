@@ -55,18 +55,25 @@ def report_progress(*args, **kwargs):
 
 def run():
     cli_parser = argparse.ArgumentParser()
-    cli_parser.add_argument('directory', help="Directory path containing PDFs to be indexed")
+    cli_parser.add_argument('directory', nargs='?', default=os.getcwd(), help="Directory path containing PDFs to be indexed")
     cli_parser.add_argument('-i', '--index-dir', dest="index_dir", help="Index directory. Default: CURRENT_DIR/percs_idx")
     cli_parser.add_argument('-f', '--force-new', dest="force_new", action="store_true", default=False, help="If index dir is an existing index, clear and create a new index in its place")
     cli_parser.add_argument('-c', '--collection-name', dest="collection", help="Collection name for indexed files. Default to current date (yyyy-mm-dd)")
     cli_parser.add_argument('-n', '--name-csv', dest='name_csv', help="Load names from csv, instead of embedded pdf metadata. Expects (name, filename) rows")
     cli_parser.add_argument('-r', '--remove-missing', dest='remove_missing', default=False, action="store_true", help="Remove missing files from the index, when indexing a directory")
     cli_parser.add_argument('-s', '--size', default=False, action="store_true", help="Show number of records in index, and exit")
+    cli_parser.add_argument('-d', '--delete-document', dest="delete_doc", default=None, help="Delete file from index, and exit")
 
     args = cli_parser.parse_args()
-    collection = args.collection or datetime.date.today().isoformat()
 
     indexer = Indexer(args.index_dir, args.force_new)
+
+    if args.delete_doc is not None:
+        print("Removing {0} from the index".format(args.delete_doc))
+        indexer.remove_file(args.delete_doc)
+        print("Doc count={0}".format(indexer.index.doc_count()))
+        print("Done.")
+        return
 
     if args.size:
         count = indexer.index.doc_count()
@@ -75,6 +82,7 @@ def run():
         ))
         return
 
+    collection = args.collection or datetime.date.today().isoformat()
     indexer.add_items(
         unicode(collection, 'utf-8'),
         unicode(args.directory, 'utf-8'),

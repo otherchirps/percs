@@ -60,6 +60,17 @@ class Indexer(object):
                 index_item[field] = page[field]
             writer.add_document(**index_item)
 
+    def remove_file(self, filename):
+        content_hash = get_content_hash(open(filename, 'rb').read())
+        writer = self.index.writer()
+        try:
+            writer.delete_by_term('file_hash', content_hash)
+        except:
+            writer.cancel()
+            print "Failed to remove: {0} ({1})".format(filename, content_hash)
+        else:
+            writer.commit()
+
     def add_items(self, collection, source_directory, name_doc_pairs, progress_callback=None, remove_missing_files=False):
         """ Adds items to the index.
 

@@ -12,11 +12,8 @@ Contents:
    :maxdepth: 2
 
    about.rst
-   implementation.rst
-   included.rst
    usage.rst
-   code.rst
-   contact.rst
+   implementation.rst
 
 
 Indices and tables
