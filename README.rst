@@ -48,7 +48,7 @@ Contact
 
 Site-specific suggestions and problems should go to the `issue tracker`_.
 
-Any other queries, you can reach `via email`_.
+Any other queries, you can reach me `via email`_.
 
 
 .. _percs website: http://percs.otherchirps.net
