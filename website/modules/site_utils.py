@@ -76,7 +76,7 @@ def get_collections(app_path):
     _collections = os.listdir(
         os.path.join(app_path, 'static', 'collections')
     )
-    _collections.sort()
+    _collections.sort(reverse=True)
 
     return _collections
 
