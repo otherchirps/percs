@@ -29,6 +29,11 @@ Source code
 
 You can get the source code from: https://github.com/otherchirps/percs
 
+Documentation
+-------------
+
+Usage instructions, etc, can be found here: http://percs.readthedocs.org/
+
 Licensing
 ---------
 
