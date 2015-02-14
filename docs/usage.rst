@@ -39,7 +39,7 @@ It's found in the ``/percslib`` subdirectory.
 The OCR library has a bunch of dependencies. 
 On Ubuntu 14.10, I installed these packages to get things rolling::
 
-    sudo apt-get install libpython-dev zlib libjpeg-dev libopenjpeg-dev libfreetype6-dev libwebp-dev libwebpmux1 liblcms2-2 liblcms2-dev liblcms2-utils libtk8.6-dev libtiff5-dev tesseract-ocr ghostscript imagemagick libpoppler-dev libpoppler-cil-dev python-poppler 
+    sudo apt-get install libpython-dev zlibc zlib1g zlib1g-dev libtk8.6 libjpeg-dev libopenjpeg-dev libfreetype6-dev libwebp-dev libwebpmux1 liblcms2-2 liblcms2-dev liblcms2-utils libtiff5-dev tesseract-ocr ghostscript imagemagick libpoppler-dev libpoppler-cil-dev python-poppler 
 
 Unpack the `repository`_.  Use a `virtualenv`_ if you like (probably a good idea). 
 Then, in the ``percslib`` subdirectory, run::
