@@ -12,7 +12,7 @@ class Searcher(object):
     def __init__(self, index_dir):
         self.index = Indexer.open_existing(index_dir)
 
-    def search(self, query_string, page, limit):
+    def search(self, query_string, page="1", limit=20):
         results = []
         query_string = unicode(query_string, 'utf-8')
         with self.index.searcher() as searcher:
