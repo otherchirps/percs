@@ -167,16 +167,16 @@ Here's it's help dump::
     usage: percs-pdf-split [-h] [-c CSV_FILENAME] [-o OUTPUT_DIR] [-H] filename
 
     positional arguments:
-      filename              PDF file to split
+    filename              PDF file to split
 
     optional arguments:
-      -h, --help            show this help message and exit
-      -c CSV_FILENAME, --csv-page-ranges CSV_FILENAME
-                            CSV containing start,end, & (optional) output filename
-                            for range
-      -o OUTPUT_DIR, --output-directory OUTPUT_DIR
+    -h, --help            show this help message and exit
+    -c CSV_FILENAME, --csv-page-ranges CSV_FILENAME
+                            CSV containing start, end, name & (optional) output
+                            filename for range
+    -o OUTPUT_DIR, --output-directory OUTPUT_DIR
                             Output directory. Default: current directory
-      -H, --header-row      CSV contains header row to skip
+    -H, --header-row      CSV contains header row to skip
 
 Example usage, here I split the 2012-2013 Volume 2 file into it's individual submissions, with 
 the files being dumped to the ``split_v2`` directory::
