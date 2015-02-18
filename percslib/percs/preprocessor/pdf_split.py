@@ -121,7 +121,7 @@ class PDFSplitter(object):
 def run():
     parser = argparse.ArgumentParser()
     parser.add_argument('filename', help="PDF file to split")
-    parser.add_argument('-c', '--csv-page-ranges', dest='csv_filename', help="CSV containing start,end, & (optional) output filename for range")
+    parser.add_argument('-c', '--csv-page-ranges', dest='csv_filename', help="CSV containing start, end, name & (optional) output filename for range")
     parser.add_argument('-o', '--output-directory', dest='output_dir', help="Output directory. Default: current directory")
     parser.add_argument('-H', '--header-row', action="store_true", dest="header_row", default=False, help="CSV contains header row to skip")
 
